@@ -1,4 +1,4 @@
-const CACHE='salahpulse-v7-9';
+const CACHE='salahpulse-v8-1';
 const ASSETS=['./','./index.html','./manifest.json','./icon.svg','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(
   caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())
@@ -10,9 +10,6 @@ self.addEventListener('activate',event=>event.waitUntil(
 ));
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET') return;
-  // Always try the network first for navigations so installed Home Screen
-  // launches receive the newest index.html after deployment. Offline falls
-  // back to the cached app shell.
   if(event.request.mode==='navigate'){
     event.respondWith(
       fetch(event.request,{cache:'no-store'}).then(response=>{
