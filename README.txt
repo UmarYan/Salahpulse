@@ -1,9 +1,16 @@
-SalahPulse V7.7 — UI + PWA update
+SalahPulse V7.9
 
-Latest changes:
-- Main Menu now includes Prayer time setup and Timing setup.
-- Timing setup provides time inputs for Usual Jama’ah Time and Personal On-time Target for Fajr, Dhuhr, Asr, Maghrib and Isha.
-- Home and Stats cards use a light-green background with stronger headings.
-- Service worker/cache strategy updated so the installed Home Screen PWA can receive new deployments while preserving localStorage data.
+Main Menu drawer:
+- No Main Menu/Back header; tap the blank right side to close.
+- Appearance: Theme (3-option popup: Auto, Day, Night)
+- Data & Backup: direct Backup, direct Restore picker, direct CSV export
+- Time Setup: Prayer times; Timings
+- Timings supports fixed times plus relative targets: Prayer time + 5/10/15/20/30 min and, for On-time Target, Usual Jama'ah + 5/10/15/20/30 min.
+- Preferences: Week starts on
+- Languages, About SalahPulse, Refresh
 
-Deploy all files together to the same GitHub Pages site.
+All selections save immediately; no Save button is required.
+
+PWA update:
+- Service worker cache bumped to V7.9.
+- Navigation uses network-first with offline fallback so Home Screen installs can receive the latest UI.
