@@ -1,28 +1,20 @@
-SalahPulse v8
+SalahPulse v9
 
-Private, offline-first Salah tracker.
+Private, offline-first Salah tracker for daily prayer, Jama’ah, Qaza, consistency and reflection.
 
-Highlights:
-- Daily 5-Salah tracking with popup-first entry
-- Actual recorded prayer time saved automatically when you tap Mark now
-- Edit actual prayer date/time later if you recorded after praying
-- On-device prayer-time calculation from manual latitude/longitude
-- Calculation method choices: Karachi, MWL, Egypt, ISNA, Umm Al-Qura
-- Asr method: Hanafi or Shafi/Standard
-- Per-Salah prayer-time adjustment in minutes
-- Separate Personal on-time target and Usual Jama'ah time for every Salah
-- Automatic On time / Delayed / Qaza classification when a performed Salah is recorded
-- Jama'ah and Alone tracked as a separate dimension from timing
-- Separate Qaza and Missed tracking
-- Clear/not-recorded never counts as missed
-- Recent-weighted Consistency Strength inspired by habit-strength concepts, but with a SalahPulse-specific calculation
-- Per-Salah adherence, On-time and Jama'ah insights
-- History, streaks, matrix, reflection, backup/restore and CSV export
-- Day/Night/Auto theme
-- Offline-first local storage; no account required
+v9 updates:
+- Restored the Daily Prayer Log as the main daily page.
+- Added a compact Prayer Times card to the daily log.
+- Fixed prayer-time timezone handling for selected locations instead of relying on the device timezone.
+- Added Town / City selection with built-in locations, plus Coordinates mode.
+- Added calculation method, Asr method, time format and high-latitude options.
+- Kept per-Salah adjustment, Personal on-time target and Usual Jama’ah time.
+- Existing Salah records and settings are preserved/migrated.
 
-Timing clarification:
-- Prayer times are astronomical estimates calculated on the device from the location and selected method. Local mosque timetables can differ; use the per-Salah minute adjustment if needed.
-- Personal on-time target is an app tracking target, not a Shariah definition.
-- Usual Jama'ah time is the normal congregation time at the user's mosque; it does not define the prayer's start/end.
-- Delayed means after the Personal on-time target but before the calculated prayer end. Qaza means after the prayer time has ended.
+Location note:
+Town selection supplies coordinates and timezone locally. Coordinates mode is available for any place not listed.
+
+Tracking note:
+On time / Delayed / Qaza are tracking classifications based on configured prayer times and Personal on-time target; they are not Shariah rulings.
+
+All records remain on the device unless you export a backup.
