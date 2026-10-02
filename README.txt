@@ -1,7 +1,9 @@
-SalahPulse V7.3 — V7 Base Fix
+SalahPulse V7.7 — UI + PWA update
 
-This build keeps the V7 interface and data model and fixes: prayer-time astronomical calculation (solar-angle formula), location-timezone handling for classification, canonical Timeliness/Jama’ah denominators, compact Home prayer-time display, 7/30/90/All period propagation, interactive Stats drill-downs, and Save/Cancel popup behavior.
+Latest changes:
+- Main Menu now includes Prayer time setup and Timing setup.
+- Timing setup provides time inputs for Usual Jama’ah Time and Personal On-time Target for Fajr, Dhuhr, Asr, Maghrib and Isha.
+- Home and Stats cards use a light-green background with stronger headings.
+- Service worker/cache strategy updated so the installed Home Screen PWA can receive new deployments while preserving localStorage data.
 
-Prayer times are calculated locally from the selected coordinates, date, calculation method and Asr madhab. Local mosque iqamah times may differ; Usual Jama’ah time remains a separate optional setting.
-
-Offline-first. Existing localStorage key: salahpulse_v7.
+Deploy all files together to the same GitHub Pages site.
