@@ -1,7 +1,15 @@
-SalahPulse v2 — compact, popup-first Salah tracker
+SalahPulse V5 — Consistency Edition
 
-Deploy the contents of this folder directly to the ROOT of your GitHub Pages repository (not inside a nested folder). Commit changes, then enable Settings > Pages > Deploy from a branch > main > /(root).
+Loop-inspired features adapted for Salah tracking:
+- Habit-strength score (SalahPulse formula, not a copy of Loop)
+- 7/30/90-day and all-time review periods
+- Daily completion trend
+- Salah-by-Salah consistency statistics
+- 10-day Salah consistency matrix
+- Date-specific reflection notes
+- Streaks and best streak
+- Qaza, Jama’ah, Alone, delayed and missed tracking
+- CSV + JSON backup/restore
+- Offline-first PWA and local-only data
 
-Features: compact Today screen; tap a prayer status to open quick popup choices (Jama’ah, Alone, Qaza, Missed, Not recorded); Stats; separate Qaza log; short reflection; theme preferences; JSON backup/restore; CSV export; offline PWA caching. Data is stored locally in this browser.
-
-If you previously used SalahPulse v1, export a JSON backup from that version before replacing its files. V2 uses a new storage key, so v1 data will not automatically appear.
+Not copied: Android-only widgets, Tasker integration or exact Loop implementation. Browser/PWA limitations mean those are not equivalent here.
