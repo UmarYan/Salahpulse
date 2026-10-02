@@ -1,20 +1,17 @@
-SalahPulse v9
+SalahPulse — V7 Base Update (V7.1)
 
-Private, offline-first Salah tracker for daily prayer, Jama’ah, Qaza, consistency and reflection.
+This build keeps the V7 interface, navigation, scoring, consistency views, status popup, Qaza log, reflection, backup/restore and settings structure as the base.
 
-v9 updates:
-- Restored the Daily Prayer Log as the main daily page.
-- Added a compact Prayer Times card to the daily log.
-- Fixed prayer-time timezone handling for selected locations instead of relying on the device timezone.
-- Added Town / City selection with built-in locations, plus Coordinates mode.
-- Added calculation method, Asr method, time format and high-latitude options.
-- Kept per-Salah adjustment, Personal on-time target and Usual Jama’ah time.
-- Existing Salah records and settings are preserved/migrated.
+Only the prayer-time/location layer was added carefully:
+- Daily Prayer Log remains the V7 main screen.
+- Prayer Times card added without replacing the V7 layout.
+- Town/City selection or manual Coordinates.
+- Built-in towns include Dhulian, Jangipur, Murshidabad, Malda, Kolkata, Krishnanagar, Siliguri, Howrah, Durgapur, Asansol, New Delhi, Mumbai, Hyderabad, Chennai, Bengaluru and Dhaka.
+- Calculation methods: Karachi, MWL, Egyptian, ISNA, Umm al-Qura.
+- Asr: Hanafi or Shafi.
+- 12/24-hour display.
+- High-latitude rule options.
+- Existing V7 personal on-time targets and usual Jama'ah times are preserved.
+- Existing V7 local data key is preserved for compatibility.
 
-Location note:
-Town selection supplies coordinates and timezone locally. Coordinates mode is available for any place not listed.
-
-Tracking note:
-On time / Delayed / Qaza are tracking classifications based on configured prayer times and Personal on-time target; they are not Shariah rulings.
-
-All records remain on the device unless you export a backup.
+Important: Prayer times are calculated offline from the selected coordinates. They are astronomical calculated times, not a mosque timetable. Local Jama'ah time remains a separate user setting.
