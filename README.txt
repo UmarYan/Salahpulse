@@ -1,5 +1,3 @@
-SalahPulse V8.1
+SalahPulse V8.5
 
-V8.1 package correction: restored manifest.json and icon.svg while preserving the V8.0 UI, menu layering, deep-green headers, and Salah-by-day improvements.
-
-PWA cache version: salahpulse-v8-1
+Adds a dedicated Why & Improve tab after Stats for optional reason tracking, patterns, prevention tips, and later reason entry. Status selection remains one-tap and no longer opens a reason popup automatically. Includes PWA cache update handling.
