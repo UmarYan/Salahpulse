@@ -1,4 +1,4 @@
-SalahPulse V9.0 — Revamped Stable
+SalahPulse V9.1 — Review Endpoint Update
 
 Built from the stable V8.8.1 / V8.7 UI base with the approved revamp.
 
@@ -18,3 +18,6 @@ Changes:
 - Existing localStorage key remains salahpulse_v7 for data continuity.
 
 Deploy all 7 files to GitHub Pages.
+
+- Stats Review ending now defaults to Today, with an optional Selected date mode for historical review.
+- Today mode is independent of the Home date; Selected date mode follows the Home date.
