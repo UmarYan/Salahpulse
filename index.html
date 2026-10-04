@@ -74,6 +74,18 @@
 #stats .compact-stat .fulfillment-breakdown span{flex:0 0 auto;min-width:58px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:4px 6px;text-align:center;font-size:9px;color:var(--muted)}
 #stats .compact-stat .fulfillment-breakdown b{display:block;font-size:11px;color:var(--ink)}
 #stats .compact-stat .fulfillment-main .big{order:1;font-size:25px;margin:2px 0 0}
+/* V9.9 requested-only changes */
+#stats .compact-stat .fulfillment-main{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;margin-top:5px}
+#stats .compact-stat .fulfillment-main .big{order:0;flex:0 0 auto;font-size:25px;margin:0}
+#stats .compact-stat .fulfillment-breakdown{order:1;display:flex;width:auto;gap:4px;margin:0;flex:0 0 auto}
+#stats .compact-stat .fulfillment-breakdown span{min-width:54px;padding:4px 5px;font-size:8px}
+#stats .compact-stat .fulfillment-breakdown b{font-size:10px}
+#prayerTimesCard .row>div .small{display:none}
+#prayerTimesCard .row .pill{max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#today .todayPrayerCard .prayer{padding:5px 0}
+#today .todayPrayerCard .status{padding:6px 5px;min-width:72px}
+#today .todayPrayerCard .sun{width:27px;height:27px;font-size:17px}
+#today .todayPrayerCard .pmeta{font-size:10px}
 </style></head><body><header><div class="topbar"><button class="menuTop" id="menuTop" aria-label="Menu">☰</button><div class="brand" id="brand"><div class="logo">☾</div><div><h1>SalahPulse</h1><p>Stay consistent with Salah.</p></div></div><button id="install" style="display:none">Install</button></div></header><div id="bootError" class="boot-error">SalahPulse could not finish loading. Open More → Refresh and try again.</div><main class="wrap">
 <section id="today" class="view active"><div class="datebar"><button id="prev">‹</button><input id="date" type="date"><button id="next">›</button><button id="todayBtn">Today</button><div id="dateState" class="date-state"></div></div><div class="summary"><div class="card hero"><div class="muted">Today’s Salah</div><div class="big" id="done">0/5</div><div class="muted">fulfilled</div><div class="progress"><span id="prog" style="width:0%"></span></div><div class="small home-breakdown" id="dayhint">0 on time · 0 delayed · 0 qaza · 0 missed</div></div><div class="card"><div class="muted" id="todayJamaahTitle">Jama’ah today</div><div class="big" id="jam">0/5</div><div class="muted">of five prayers</div><div style="margin-top:12px" class="muted">7-day adherence</div><b id="week">0%</b></div></div><div class="card compacttimes" id="prayerTimesCard"><div class="row"><div><b>Prayer Times</b><div class="small" id="locationLabel">Set your location in Settings</div></div><span class="pill" id="timeMethod">University of Islamic Sciences</span></div><div class="small" id="nextPrayer" style="margin-top:5px;font-weight:750"></div><div class="minirow" id="timesGrid" style="background:transparent;color:var(--ink)"></div></div><div class="sectionhead"><span id="salahDayTitle">Prayers</span><span class="pill" id="dateLabel">Today</span></div><div class="card todayPrayerCard" id="prayers"></div><div class="card improve-card" id="pendingQazaCard" style="display:none"><div class="row"><div><b>Pending Qaza</b><div class="small">Missed Salah still awaiting make-up.</div></div><span class="pill" id="pendingQazaCount">0</span></div><div id="pendingQazaList" style="margin-top:8px"></div><button class="ghost" data-goto="qazaView" style="width:100%;margin-top:8px">View Qaza</button></div><div class="notice">Track honestly: on-time, delayed, qaza or missed. Blank means not recorded—not automatically missed.</div></section>
 <section id="stats" class="view">
@@ -214,7 +226,7 @@ function render(){
  const homeDateLabel=new Date(sel+'T12:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});$('salahDayTitle').textContent=sel===today()?'Today’s Salah':('Salah on '+homeDateLabel);$('todayJamaahTitle').textContent=sel===today()?'Jama’ah today':('Jama’ah on '+homeDateLabel);
  let pt=prayerTimes(sel);
  $('locationLabel').textContent=pt?`${pt.location.label} · ${pt.location.tz||data.settings.tz||''}`:'Set your location in Settings';
- $('timeMethod').textContent=(data.settings.calcMethod==='Karachi'?'University of Islamic Sciences':(data.settings.calcMethod||'University of Islamic Sciences'));
+ $('timeMethod').textContent=pt?pt.location.label:'Set location';
  $('nextPrayer').textContent=nextPrayerText(pt);
  $('timesGrid').innerHTML=pt?P.map(p=>`<button class="timecell" data-timeprayer="${p}"><span>${icons[P.indexOf(p)]}</span><b>${p}</b><strong>${hm(pt.times[p])}</strong></button>`).join(''):'<span style="grid-column:1/-1">Set a town or coordinates in Settings</span>';
  let r=rec();
