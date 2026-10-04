@@ -1,17 +1,15 @@
-SalahPulse V8.9 — Stats SalahPulse V8.8 — Qaza redesign first-load fixes
+SalahPulse V8.8.1 — Stable Rollback
 
-Changes:
-- Removed the old manual Qaza log.
-- Removed Reflection & intention.
-- Reasons & Improve remains for optional root-cause tracking and prevention.
-- New Qaza management: Missed Salah creates Pending Qaza.
-- Mark Qaza done records the make-up separately; the original Missed record stays unchanged.
-- Completed Qaza history is shown separately with Undo.
-- Legacy source-linked Qaza entries are migrated to the new completion record.
-- PWA cache version bumped for update handling.
+This is a stability-first rollback to the last known working Qaza redesign before the V8.9 Stats changes.
 
-V8.9 fixes:
-- Prevents the unrendered first-paint blank/partial Home screen.
-- Review period is now the first control on Stats and drives all Stats features below it.
-- Removed the duplicated Why & Improve card from Stats; Reasons remains the dedicated section.
-- Reasons period buttons now correctly highlight the selected period (7/30/90/All).
+Included:
+- Prayers and existing Salah status tracking
+- Reasons & Improve
+- Pending Qaza: Missed → Pending Qaza → Mark Qaza Done
+- Original Missed record remains unchanged after Qaza completion
+- Old manual Qaza log and Reflection & Intention remain removed
+
+Stability fix:
+- PWA service-worker cache version bumped to force a clean update after rollback.
+
+Do not apply the planned Stats revamp yet; it will be added only after this stable version is confirmed working.
