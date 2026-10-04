@@ -1,7 +1,7 @@
 {
   "name": "SalahPulse",
   "short_name": "SalahPulse",
-  "description": "A private, offline-first Salah tracker for daily prayer, Jama’ah, Qaza, consistency and reflection.",
+  "description": "A private, offline-first Salah tracker for daily prayer, Jama’ah, Qaza, consistency, reasons and Qaza management.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
