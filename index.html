@@ -46,16 +46,24 @@
 
 .reasonModal{z-index:120}.reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.reason-btn{padding:11px 9px;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--ink)}.reason-btn small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.improve-card{background:var(--soft);border-color:#c9e8d7}.reason-bar{display:flex;align-items:center;gap:8px;margin:8px 0}.reason-bar .bar{height:7px}.reason-chip{font-size:10px;padding:4px 7px;border-radius:99px;background:var(--bg);border:1px solid var(--line)}
 .boot-error{display:none;margin:8px 14px;max-width:650px;padding:12px;border-radius:12px;background:var(--red);color:var(--ink);font-size:12px}.boot-error.show{display:block}
-/* V9.4 Stats layout polish */
+/* V9.6 Stats layout polish */
 #stats .review-card{padding:9px}
 #stats .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
 #stats .review-block{min-width:0}
 #stats .review-block .small{margin-top:3px}
+#stats .review-block .periods{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#stats .review-block .periods button{padding:7px 8px;font-size:11px}
 #stats .review-date-row{display:flex;gap:7px;align-items:center;margin-top:8px}
-#stats .review-date-row input{width:100%;min-width:0}
-#stats .review-date-row button{white-space:nowrap;padding:9px 11px}
+#stats .review-date-row input{flex:0 1 142px;width:142px;min-width:0;background:var(--soft);border:1px solid #cbe4d4;color:var(--ink);padding:8px 7px;font-size:12px}
+#stats .review-date-row button{white-space:nowrap;padding:8px 10px}
 #stats .compact-stat{padding:8px;margin-bottom:7px}
-#stats .compact-stat .big{font-size:25px;margin:2px 0}
+#stats .compact-stat .stat-card-title{font-size:14px;line-height:1.2}
+#stats .compact-stat .big{font-size:25px;margin:3px 0}
+#stats .compact-stat .fulfillment-main{display:flex;align-items:center;gap:9px;margin-top:2px}
+#stats .compact-stat .fulfillment-main .big{flex:0 0 auto;order:2}
+#stats .compact-stat .fulfillment-breakdown{display:flex;flex:1;gap:4px;margin-top:0;order:1}
+#stats .compact-stat .fulfillment-breakdown span{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:4px 3px;text-align:center;font-size:9px;color:var(--muted)}
+#stats .compact-stat .fulfillment-breakdown b{display:block;font-size:11px;color:var(--ink)}
 #stats .compact-stat .scoreline{padding:7px 0 1px;gap:9px}
 #stats .compact-stat .scorecircle{width:50px;height:50px}
 #stats .compact-stat .scorecircle:after{inset:5px}
@@ -64,13 +72,13 @@
 #stats .summary .statlink .muted{color:#17372c!important;font-weight:850}
 #stats .summary .statlink .small{color:#496657!important}
 #stats .summary .statlink{color:#17372c!important}
-@media(max-width:430px){#stats .review-grid{gap:7px}#stats .review-date-row{display:block}#stats .review-date-row button{width:100%;margin-top:6px}}
+@media(max-width:430px){#stats .review-grid{gap:7px}#stats .review-date-row{display:flex;gap:6px}#stats .review-date-row input{width:132px;flex:1 1 auto;min-width:0}#stats .review-date-row button{flex:0 0 auto;margin-top:0}}
 </style></head><body><header><div class="topbar"><button class="menuTop" id="menuTop" aria-label="Menu">☰</button><div class="brand" id="brand"><div class="logo">☾</div><div><h1>SalahPulse</h1><p>Stay consistent with Salah.</p></div></div><button id="install" style="display:none">Install</button></div></header><div id="bootError" class="boot-error">SalahPulse could not finish loading. Open More → Refresh and try again.</div><main class="wrap">
 <section id="today" class="view active"><div class="datebar"><button id="prev">‹</button><input id="date" type="date"><button id="next">›</button><button id="todayBtn">Today</button><div id="dateState" class="date-state"></div></div><div class="summary"><div class="card hero"><div class="muted">Today’s Salah</div><div class="big" id="done">0/5</div><div class="muted">fulfilled</div><div class="progress"><span id="prog" style="width:0%"></span></div><div class="small home-breakdown" id="dayhint">0 on time · 0 delayed · 0 qaza · 0 missed</div></div><div class="card"><div class="muted" id="todayJamaahTitle">Jama’ah today</div><div class="big" id="jam">0/5</div><div class="muted">of five prayers</div><div style="margin-top:12px" class="muted">7-day adherence</div><b id="week">0%</b></div></div><div class="card compacttimes" id="prayerTimesCard"><div class="row"><div><b>Prayer Times</b><div class="small" id="locationLabel">Set your location in Settings</div></div><span class="pill" id="timeMethod">University of Islamic Sciences</span></div><div class="small" id="nextPrayer" style="margin-top:5px;font-weight:750"></div><div class="minirow" id="timesGrid" style="background:transparent;color:var(--ink)"></div></div><div class="sectionhead"><span id="salahDayTitle">Prayers</span><span class="pill" id="dateLabel">Today</span></div><div class="card todayPrayerCard" id="prayers"></div><div class="card improve-card" id="pendingQazaCard" style="display:none"><div class="row"><div><b>Pending Qaza</b><div class="small">Missed Salah still awaiting make-up.</div></div><span class="pill" id="pendingQazaCount">0</span></div><div id="pendingQazaList" style="margin-top:8px"></div><button class="ghost" data-goto="qazaView" style="width:100%;margin-top:8px">View Qaza</button></div><div class="notice">Track honestly: on-time, delayed, qaza or missed. Blank means not recorded—not automatically missed.</div></section>
 <section id="stats" class="view">
 <div class="sectionhead"><span>Your Salah consistency</span></div>
 <div class="card review-card"><div class="review-grid"><div class="review-block"><b>Review Period</b><div class="small">Choose how much history to review.</div><div class="periods" id="periods" style="margin-top:8px"><button data-period="7">7 days</button><button data-period="30">30 days</button><button data-period="90">90 days</button><button data-period="all">All</button></div></div><div class="review-block"><b>Review Ending</b><div class="review-date-row"><input id="reviewDatePicker" type="date" aria-label="Select review ending date"><button id="reviewTodayBtn" type="button">Today</button></div><div class="small" id="reviewEndDate" style="margin-top:6px"></div></div></div></div>
-<div class="card hero compact-stat"><div class="muted stat-card-title">Salah Fulfillment</div><div class="fulfillment-main"><div class="minirow fulfillment-breakdown"><span>Fulfilled <b id="full">0</b></span><span>Qaza <b id="statQaza">0</b></span><span>Missed <b id="statMissed">0</b></span></div><div class="big" id="rate">0%</div></div><div class="small" id="rateSub">Performed on time or delayed + Qaza, compared with missed.</div><div class="progress"><span id="monthprog"></span></div></div>
+<div class="card hero compact-stat"><div class="stat-card-title"><b>Salah Fulfillment</b></div><div class="fulfillment-main"><div class="big" id="rate">0%</div><div class="minirow fulfillment-breakdown"><span>Fulfilled <b id="full">0</b></span><span>Qaza <b id="statQaza">0</b></span><span>Missed <b id="statMissed">0</b></span></div></div><div class="small" id="rateSub">Performed on time or delayed + Qaza, compared with missed.</div><div class="progress"><span id="monthprog"></span></div></div>
 <div class="card compact-stat"><div class="row"><div><b>Consistency Strength</b><div class="small">A long-term adherence pattern. Recent days matter more, but one bad day does not erase your progress.</div></div><span class="pill" id="scoreLabel">Growing</span></div><div class="scoreline"><div class="scorecircle" id="scoreCircle" style="--score:0%"><b id="habitScore">0%</b></div><div><b id="scoreTitle">Build the habit</b><div class="scorehint" id="scoreHint">Every consistent prayer strengthens your pattern.</div></div></div></div><div class="summary"><button class="card statlink" id="timelinessCard"><div class="muted">Timeliness</div><div class="big" id="ontime">0%</div><div class="small">On-time among performed · Tap for details</div></button><button class="card statlink" id="jamaahCard"><div class="muted">Jama’ah</div><div class="big" id="jamaahrate">0%</div><div class="small">Jama’ah among performed · Tap for details</div></button></div>
 <div class="card"><div class="row"><div><b>Each Salah</b><div class="small">See how you are actually performing each prayer.</div></div><span class="pill">Tap a row</span></div><div id="prayerStats"></div></div>
 <div class="card"><b id="patternTitle">Selected-period Pattern</b><div class="small" style="margin:4px 0 10px">Each day shows how many of the five prayers were recorded as prayed.</div><div id="heatmap" style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px"></div><div class="legend"><span><i class="dot full"></i>5/5</span><span><i class="dot some"></i>1–4</span><span><i class="dot none"></i>0</span></div></div>
