@@ -1,3 +1,5 @@
+SalahPulse v9.17 — requested night-theme visibility and Home date-indicator positioning.
+
 SalahPulse v9.3 — direct Stats review-ending date picker.
 SalahPulse V9.2 — Review Endpoint Update
 
